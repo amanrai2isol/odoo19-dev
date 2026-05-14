@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_inherit_eway" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.eway</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Indian E-Way Bill" name="eway_bill_config">
+                    <block title="GST Portal API Credentials" string="E-Way Bill Integration">
+                        <setting string="GST Settings" help="Configure your credentials generated from the NIC E-Way Bill portal">
+                            <div class="content-group">
+                                <div class="row mt-2">
+                                    <label for="ewaybill_gstin" class="col-lg-3 o_light_label"/>
+                                    <field name="ewaybill_gstin"/>
+                                </div>
+                                <div class="row mt-2">
+                                    <label for="ewaybill_username" class="col-lg-3 o_light_label"/>
+                                    <field name="ewaybill_username"/>
+                                </div>
+                                <div class="row mt-2">
+                                    <label for="ewaybill_password" class="col-lg-3 o_light_label"/>
+                                    <field name="ewaybill_password" password="True"/>
+                                </div>
+                                <div class="row mt-2">
+                                    <label for="ewaybill_client_id" class="col-lg-3 o_light_label"/>
+                                    <field name="ewaybill_client_id"/>
+                                </div>
+                                <div class="row mt-2">
+                                    <label for="ewaybill_client_secret" class="col-lg-3 o_light_label"/>
+                                    <field name="ewaybill_client_secret" password="True"/>
+                                </div>
+                                <div class="row mt-2">
+                                    <label for="ewaybill_environment" class="col-lg-3 o_light_label"/>
+                                    <field name="ewaybill_environment"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
