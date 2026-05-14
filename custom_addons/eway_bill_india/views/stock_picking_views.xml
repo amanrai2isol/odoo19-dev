@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_form_inherit_eway" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit.eway</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+
+            <!-- 1. Add the button to the header -->
+            <xpath expr="//header" position="inside">
+                <button name="action_generate_ewaybill"
+                        string="Generate E-Way Bill"
+                        type="object"
+                        class="oe_highlight"
+                        invisible="eway_bill_no != False"/>
+            </xpath>
+
+            <!-- 2. Universal Fix: Add a BRAND NEW tab instead of searching for 'extra_info' -->
+            <xpath expr="//notebook" position="inside">
+                <page string="E-Way Bill" name="eway_bill_tab">
+                    <group>
+                        <group string="Transport Details">
+                            <field name="l10n_in_mode"/>
+                            <field name="l10n_in_vehicle_no"/>
+                            <field name="l10n_in_distance"/>
+                        </group>
+                        <group string="Status">
+                            <field name="eway_bill_no" readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

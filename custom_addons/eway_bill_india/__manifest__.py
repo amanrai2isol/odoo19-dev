@@ -6,6 +6,7 @@
     'depends': ['account', 'stock'],
     'data': [
         'views/res_config_settings_views.xml',
+        'views/stock_picking_views.xml',
     ],
     'installable': True,
     'application': False,
